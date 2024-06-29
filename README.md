@@ -6,7 +6,7 @@ Here I gather the code for the simulations presented in my thesis. This includes
       - Implementation of a tamed-Euler scheme
       - Error plots
 
-3) Numerical simulations of the Stochastic Heat Equation with distributional drift:
+3) Numerical simulations of the Stochastic Heat Equation with a Dirac reaction term:
       - Implementation of a tamed-Euler and finite-difference scheme
       - Plots of the evolution in time of the solution
 
