@@ -13,6 +13,7 @@ Here I gather the code for the simulations presented in my thesis. This includes
       - Plots of the evolution in time of the solution
 
 5) Estimation of parameters in the fractional Ornstein-Uhlenbeck model.
+   - See estimationSDEs.ipynb for the code. It contains:
       - Simulation of the fractional Brownian motion
       - Simulation of the fractional Onstein-Uhlenbeck process
       - Implementation of the estimators
