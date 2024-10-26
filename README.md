@@ -8,6 +8,7 @@ Here I gather the code for the simulations presented in my thesis. This includes
       - Error plots
 
 3) Numerical simulations of the Stochastic Heat Equation with a Dirac reaction term.
+   - See singularSHE-visual.py for the code. It contains:
       - Implementation of a tamed-Euler and finite-difference scheme
       - Plots of the evolution in time of the solution
 
