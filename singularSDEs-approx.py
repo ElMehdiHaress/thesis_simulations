@@ -44,7 +44,7 @@ def davies_harte(T, N, H):
     path = np.array([0] + list(fBm))
     return path
 
-def fBm(MC,N,H):
+def fBm(MC,N,H): #modifiy accordingly if dim > 1
     '''
     Generates many samples of paths of fractional Brownian Motion using the Davies Harte method
     
@@ -97,7 +97,7 @@ def Sde(size, true_size, approx, B, nature, dim, MC=1):
     time_step = 1/size
     step = int(true_size/size)
     # Start at the singularity to see unexpected/nondeterministic trajectories
-    s = np.zeros((MC,size+1))
+    s = np.zeros((MC,size+1)) #=np.zeros((MC,size+1,dim)) if higher dimension
     for i in range(0,size):
         s[:,i+1] = s[:,i] + time_step*drift(s[:,i],approx,nature,dim) + (B[:,(i+1)*step]-B[:,i*step])
     return s
@@ -105,7 +105,7 @@ def Sde(size, true_size, approx, B, nature, dim, MC=1):
 def error(true_size, size_list, nature, scaling, H, dim, MC):
     inf_h = 1/true_size
     #DH = davies_harte(1,N,H)
-    B = fBm(MC,true_size,H) 
+    B = fBm(MC,true_size,H) #modifiy if dim>1
     #print('%Simulation of fBm done')
 
     inf_m = true_size**(scaling)
@@ -125,7 +125,7 @@ def error(true_size, size_list, nature, scaling, H, dim, MC):
         h_sde = Sde(size, true_size, m, B, nature, dim, MC)
         Ech = (h_sde-true_sde_interpol)
         S = np.mean(Ech, axis=0)
-        incr = [(S[i+1]-S[i])**2 for i in range(len(S)-1)]
+        incr = [(S[i+1]-S[i])**2 for i in range(len(S)-1)] #modify accordignly if dim >1 
         holder = np.array(incr)*size
         error.append(np.max(holder))
 
